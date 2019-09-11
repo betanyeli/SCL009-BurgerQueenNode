@@ -12,6 +12,7 @@ const app = express();
 
 
 // Conectar aplicación a MongoDB
+//mongoUrl ya está configurada en Config && creada en servidor de MongoDB
 mongoose.connect(mongoUrl, { useNewUrlParser: true });
 
 
