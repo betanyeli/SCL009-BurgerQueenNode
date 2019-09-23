@@ -13,7 +13,16 @@ const app = express();
 
 // Conectar aplicación a MongoDB
 //mongoUrl ya está configurada en Config && creada en servidor de MongoDB
-mongoose.connect(mongoUrl, { useNewUrlParser: true });
+mongoose.connect(mongoUrl, { useNewUrlParser: true })
+.then(()=>{
+  console.log("Funciona ¬¬ ÑAÑAÑ")
+})
+// .catch(()=>{
+// console.log("NO funciona ¬¬")
+// })
+.catch((e=>{
+  console.log("why", e)
+}))
 
 
 app.set('config', config);
@@ -29,6 +38,7 @@ routes(app, (err) => {
   if (err) {
     throw err;
   }
+
 
   // Registro de "middleware" que maneja posibles errores
   app.use(errorHandler);
